@@ -1,4 +1,4 @@
-{
+  {
     "BuildID": {
         "data_validation_type": "enum",
         "default_value": null,
@@ -643,6 +643,149 @@
                 }
             },
             "type": "object"
+        }
+    },
+    "json_dump": {
+        "data_validation_type": "enum",
+        "default_value": null,
+        "form_field_choices": null,
+        "has_full_version": false,
+        "in_database_name": "json_dump",
+        "is_exposed": false,
+        "is_mandatory": false,
+        "is_returned": false,
+        "name": "json_dump",
+        "namespace": "processed_crash",
+        "permissions_needed": [],
+        "query_type": "enum",
+        "storage_mapping": {
+          "dynamic": "true",
+          "properties": {
+              "threads": {
+                "dynamic": "true",
+                "properties": {
+                  "frame_count": {
+                    "type": "long"
+                  },
+                  "frames": {
+                    "dynamic": "true",
+                    "properties": {
+                      "normalized": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                      },
+                      "module": {
+                        "type": "string"
+                      },
+                      "module_offset": {
+                        "type": "string"
+                      },
+                      "frame": {
+                        "type": "long"
+                      },
+                      "trust": {
+                        "type": "string"
+                      },
+                      "function_offset": {
+                        "type": "string"
+                      },
+                      "missing_symbols": {
+                        "type": "boolean"
+                      },
+                      "offset": {
+                        "type": "string"
+                      },
+                      "function": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                      }
+                    }
+                  }
+                }
+              },
+              "crashing_thread": {
+                "dynamic": "true",
+                "properties": {
+                  "frames": {
+                    "dynamic": "true",
+                    "properties": {
+                      "module": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                      },
+                      "module_offset": {
+                        "type": "string"
+                      },
+                      "frame": {
+                        "type": "long"
+                      },
+                      "trust": {
+                        "type": "string"
+                      },
+                     "function_offset": {
+                        "type": "string"
+                      },
+                      "missing_symbols": {
+                        "type": "boolean"
+                      },
+                      "offset": {
+                        "type": "string"
+                      },
+                      "function": {
+                        "type": "string",
+                        "index": "not_analyzed"
+                      }
+                    }
+                  },
+                  "threads_index": {
+                    "type": "long"
+                  },
+                  "total_frames": {
+                    "type": "long"
+                  }
+                }
+              },
+              "system_info": {
+                "dynamic": "true",
+                "properties": {
+                  "os": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                  },
+                  "cpu_count": {
+                    "type": "long"
+                  },
+                  "os_ver": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                  },
+                  "cpu_info": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                  },
+                  "cpu_arch": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                  }
+                }
+              },
+              "crash_info": {
+                "dynamic": "true",
+                "properties": {
+                  "address": {
+                    "type": "string"
+                  },
+                  "crashing_thread": {
+                    "type": "long"
+                  },
+                  "type": {
+                    "type": "string",
+                    "index": "not_analyzed"
+                  }
+                }
+              }
+          },
+          "type": "object"
         }
     },
     "client_crash_date": {
